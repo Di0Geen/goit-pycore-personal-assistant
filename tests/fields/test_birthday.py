@@ -89,7 +89,7 @@ def test_birthday_29_february_2000_validate_returns_true():
     """
     birthday = Birthday("29.02.2000")
 
-    assert birthday.validate() is True
+    assert birthday.validate()
 
 
 @pytest.mark.parametrize(
@@ -110,7 +110,7 @@ def test_birthday_29_february_non_leap_year_validate_returns_false(birthday):
     Тоді:
         Метод повертає ``False``.
     """
-    assert Birthday(birthday).validate() is False
+    assert not Birthday(birthday).validate()
 
 
 @pytest.mark.parametrize(
