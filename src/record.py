@@ -128,7 +128,7 @@ class Record:
         Повертає email запису.
 
         Повертає:
-            Email | None: Email запису.
+            Email | None: Email контакту.
         """
         return self._email
 
@@ -138,7 +138,7 @@ class Record:
         Встановлює email запису.
 
         Аргументи:
-            email: Email для встановлення.
+            email (str): Email.
 
         Винятки:
             ValueError: Якщо email невалідний.
