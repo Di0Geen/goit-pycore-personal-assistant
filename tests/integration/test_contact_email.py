@@ -2,8 +2,8 @@ import builtins
 
 import pytest
 
+from main import main
 from src.commands.contact_email import CONTACT_EMAIL_MESSAGES
-from src.scripts.contacts_bot import main
 from src.utils.serializers.address_book import AddressBookSerializer
 
 
@@ -29,7 +29,7 @@ def test_main_contact_email_finds_contact_by_full_email(monkeypatch, capsys, tmp
     )
 
     monkeypatch.setattr(builtins, "input", lambda: next(lines))
-    monkeypatch.setattr("src.scripts.contacts_bot.SERIALIZER_PATH", file_path)
+    monkeypatch.setattr("main.SERIALIZER_PATH", file_path)
 
     main()
 
@@ -62,7 +62,7 @@ def test_main_contact_email_returns_first_on_collision(monkeypatch, capsys, tmp_
     )
 
     monkeypatch.setattr(builtins, "input", lambda: next(lines))
-    monkeypatch.setattr("src.scripts.contacts_bot.SERIALIZER_PATH", file_path)
+    monkeypatch.setattr("main.SERIALIZER_PATH", file_path)
 
     main()
 
@@ -96,7 +96,7 @@ def test_main_contact_email_for_missing_email_shows_error(
     )
 
     monkeypatch.setattr(builtins, "input", lambda: next(lines))
-    monkeypatch.setattr("src.scripts.contacts_bot.SERIALIZER_PATH", file_path)
+    monkeypatch.setattr("main.SERIALIZER_PATH", file_path)
 
     main()
 
@@ -132,7 +132,7 @@ def test_main_contact_email_wrong_arity_shows_syntax(
     )
 
     monkeypatch.setattr(builtins, "input", lambda: next(lines))
-    monkeypatch.setattr("src.scripts.contacts_bot.SERIALIZER_PATH", file_path)
+    monkeypatch.setattr("main.SERIALIZER_PATH", file_path)
 
     main()
 

@@ -2,8 +2,8 @@ import builtins
 
 import pytest
 
+from main import COMMAND_MESSAGES, main
 from src.commands.contact import CONTACT_MESSAGES
-from src.scripts.contacts_bot import COMMAND_MESSAGES, main
 
 
 def test_main_contact_shows_existing_fields_only(monkeypatch, capsys, tmp_path):
@@ -27,7 +27,7 @@ def test_main_contact_shows_existing_fields_only(monkeypatch, capsys, tmp_path):
     )
 
     monkeypatch.setattr(builtins, "input", lambda: next(lines))
-    monkeypatch.setattr("src.scripts.contacts_bot.SERIALIZER_PATH", file_path)
+    monkeypatch.setattr("main.SERIALIZER_PATH", file_path)
 
     main()
 
@@ -55,14 +55,14 @@ def test_main_contact_shows_all_fields(monkeypatch, capsys, tmp_path):
             "add Pat 1234567890",
             "insert-email Pat pat@example.com",
             "add-address Pat Odesa",
-            "add-birthday Pat 14.10.1992",
+            "insert-birthday Pat 14.10.1992",
             "contact Pat",
             "exit",
         ]
     )
 
     monkeypatch.setattr(builtins, "input", lambda: next(lines))
-    monkeypatch.setattr("src.scripts.contacts_bot.SERIALIZER_PATH", file_path)
+    monkeypatch.setattr("main.SERIALIZER_PATH", file_path)
 
     main()
 
@@ -93,7 +93,7 @@ def test_main_contact_for_missing_contact_shows_error(monkeypatch, capsys, tmp_p
     )
 
     monkeypatch.setattr(builtins, "input", lambda: next(lines))
-    monkeypatch.setattr("src.scripts.contacts_bot.SERIALIZER_PATH", file_path)
+    monkeypatch.setattr("main.SERIALIZER_PATH", file_path)
 
     main()
 
@@ -130,7 +130,7 @@ def test_main_contact_wrong_arity_shows_syntax(
     )
 
     monkeypatch.setattr(builtins, "input", lambda: next(lines))
-    monkeypatch.setattr("src.scripts.contacts_bot.SERIALIZER_PATH", file_path)
+    monkeypatch.setattr("main.SERIALIZER_PATH", file_path)
 
     main()
 
