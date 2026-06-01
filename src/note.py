@@ -161,3 +161,21 @@ class Note:
         if tags:
             parts.append(f"{SHOW_NOTE_MESSAGES['TAGS_LABEL']}{tags}")
         return ", ".join(parts)
+
+    def __lt__(self, other):
+        return self.title.value < other.title.value
+
+    def __le__(self, other):
+        return self.title.value <= other.title.value
+
+    def __gt__(self, other):
+        return self.title.value > other.title.value
+
+    def __ge__(self, other):
+        return self.title.value >= other.title.value
+
+    def __eq__(self, other):
+        return self.title.value == other.title.value
+
+    def __ne__(self, other):
+        return self.title.value != other.title.value

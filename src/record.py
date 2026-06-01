@@ -249,6 +249,24 @@ class Record:
 
     # endregion
 
+    def __lt__(self, other):
+        return self.name.value < other.name.value
+
+    def __le__(self, other):
+        return self.name.value <= other.name.value
+
+    def __gt__(self, other):
+        return self.name.value > other.name.value
+
+    def __ge__(self, other):
+        return self.name.value >= other.name.value
+
+    def __eq__(self, other):
+        return self.name.value == other.name.value
+
+    def __ne__(self, other):
+        return self.name.value != other.name.value
+
     def __str__(self):
         """
         Повертає рядкове подання запису.
