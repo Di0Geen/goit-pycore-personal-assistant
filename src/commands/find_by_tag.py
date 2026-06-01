@@ -29,7 +29,7 @@ def find_by_tag(note_book: NoteBook, arguments: list[str]) -> str:
         raise ValueError(FIND_BY_TAG_MESSAGES["INVALID_SYNTAX"])
 
     tag, order = arguments
-    if order not in ValidOrders:
+    if not any(order == valid_order.value for valid_order in ValidOrders):
         raise ValueError(FIND_BY_TAG_MESSAGES["INVALID_ORDER"])
 
     matched = [
