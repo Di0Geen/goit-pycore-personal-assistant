@@ -4,23 +4,23 @@ from src.decorators.input_error import input_error
 TEAM_MEMBERS = [
     {
         "name": "Mykhailo Zhar",
-        "email": "mykhailo.zhar@stud.onu.edu.ua",
+        "role": "[bold cyan]Team Lead[/bold cyan]",
     },
     {
         "name": "Kostiantyn Krysenko",
-        "email": "konstantinks@gmail.com",
+        "role": "[bold green]Developer[/bold green]",
     },
     {
         "name": "Olga Pushkar",
-        "email": "gglolga@gmail.com",
+        "role": "[bold yellow]Scrum Master[/bold yellow]",
     },
     {
         "name": "Mykhailo Kovalchuk",
-        "email": "mykhailokovalchuck@gmail.com",
+        "role": "[bold green]Developer[/bold green]",
     },
     {
         "name": "Gleb Kislovskyi",
-        "email": "gkislovskyi@gmail.com",
+        "role": "[bold green]Developer[/bold green]",
     },
 ]
 
@@ -36,11 +36,14 @@ def about(_: AddressBook, arguments: list[str]) -> str:
     Повертає:
         str: Інформація про команду.
     """
-    lines = ["PERSONAL ASSISTANT", "  development by team:\n"]
+    lines = [
+        "[bold green]PERSONAL ASSISTANT v1.0[/bold green]",
+        "  development by team:\n",
+    ]
 
     for member in TEAM_MEMBERS:
         lines.append(f"  {member['name']}")
-        lines.append(f"    Email: {member['email']}")
+        lines.append(f"    Role: {member['role']}")
         lines.append("")
 
     return "\n".join(lines)

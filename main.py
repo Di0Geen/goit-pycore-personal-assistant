@@ -153,7 +153,7 @@ def main() -> None:
     book: AddressBook = serializer.deserialize()
     note_book: NoteBook = note_serializer.deserialize()
     rich_console.print(
-        "Bot is started. Type 'hello' to greet, 'help' for commands list, 'exit' or 'close' to quit."
+        "Bot is started. Type 'hello' to greet, 'about' to see the team, 'help' for commands list, 'exit' or 'close' to quit."
     )
     try:
         while True:
