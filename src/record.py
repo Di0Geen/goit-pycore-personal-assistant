@@ -124,32 +124,6 @@ class Record:
         return self._phones
 
     @property
-    def address(self) -> Address | None:
-        """
-        Повертає адресу запису.
-
-        Повертає:
-            Address | None: Адреса запису.
-        """
-        return self._address
-
-    @address.setter
-    def address(self, address):
-        """
-        Встановлює адресу запису.
-
-        Аргументи:
-            address: Адреса для встановлення.
-
-        Винятки:
-            ValueError: Якщо адреса невалідна.
-        """
-        address_obj = Address(address)
-        if not address_obj.validate():
-            raise ValueError(ADDRESS_NOT_VALID_ERROR)
-        self._address = address_obj
-
-    @property
     def email(self) -> Email | None:
         """
         Повертає email запису.
