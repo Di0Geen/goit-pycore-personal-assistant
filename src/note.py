@@ -30,6 +30,7 @@ class Note:
         """
         self._tags: list[Tag] = []
         self.title = title
+        self._text = None
 
     @property
     def title(self) -> Title:
@@ -153,8 +154,9 @@ class Note:
 
     def __str__(self) -> str:
         parts = [f"{SHOW_NOTE_MESSAGES['TITLE_LABEL']}{self.title.value}"]
-        if hasattr(self, "_text"):
+        if self.text:
             parts.append(f"{SHOW_NOTE_MESSAGES['TEXT_LABEL']}{self.text.value}")
+
         tags = self.show_tags()
         if tags:
             parts.append(f"{SHOW_NOTE_MESSAGES['TAGS_LABEL']}{tags}")

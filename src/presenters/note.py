@@ -24,7 +24,7 @@ class NotePresenter:
 
         for note in self.notes:
             title = note.title if note.title else "None"
-            text = note.text if getattr(note, "text", None) else "None"
+            text = note.text if note.text else "None"
             tags = note.show_tags()
             table.add_row(str(title), str(text), tags)
 
